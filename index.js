@@ -40,7 +40,9 @@ app.use(express.json());
 app.use(express.static("public"));
 
 app.use("/api/notification", notificationRoutes);
-
+app.get('/health', (req, res) => {
+    res.status(200).send('OK');
+});
 
 const start = () => {
     app.listen(port, () =>
