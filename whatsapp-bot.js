@@ -34,8 +34,13 @@ class WhatsappClient {
 
         this.client.on('qr', qr => {
             console.log('\x1b[31m%s\x1b[0m%s', 'WHATSAPP BOT', ' >> Generando QR, por favor aguarde...');
+            // Ensure the public directory exists
+            const publicDir = path.join(__dirname, 'public');
+            if (!fs.existsSync(publicDir)) {
+                fs.mkdirSync(publicDir);
+            }
             // Store the QR code as an image
-            QRCode.toFile(path.join(__dirname, 'public', 'qr.png'), qr, { width: 300 }, function (err) {
+            QRCode.toFile(path.join(publicDir, 'qr.png'), qr, { width: 300 }, function (err) {
                 if (err) throw err;
                 console.log('QR code saved!');
             });
