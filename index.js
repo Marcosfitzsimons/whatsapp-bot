@@ -1,14 +1,19 @@
 const dotenv = require("dotenv");
-dotenv.config();
+
+dotenv.config()
 
 const express = require("express");
+
 const notificationRoutes = require("./notificationRoutes.js");
-const cors = require("cors");
-const path = require("path");
+
+var cors = require("cors");
+const path = require("path")
 
 const WhatsappClient = require("./whatsapp-bot.js");
+//WhatsappClient.getInstance("cliente-test","./whatsapp-sessions");
 
-const whitelist = [];
+const whitelist = []
+
 const corsOptions = {
     origin: function (origin, callback) {
         if (whitelist.indexOf(origin) !== -1 || !origin) {
@@ -28,27 +33,26 @@ const corsOptions = {
 
 const app = express();
 const port = process.env.PORT || 3000;
-
 app.set("trust proxy", 1);
 app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use(express.static("public"));
 
 app.use("/api/notification", notificationRoutes);
-
 app.get('/health', (req, res) => {
     res.status(200).send('OK');
 });
 
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send('Something broke!');
+// Serve QR code
+app.get('/qr', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'qr.png'));
 });
 
 const start = () => {
-    app.listen(port, () => {
-        console.log(`Connected to backend. Server is listening on port ${port}...`);
-    });
+    app.listen(port, () =>
+        console.log(`Connected to backend. Server is listening on port ${port}...`)
+    );
 };
 
 start();

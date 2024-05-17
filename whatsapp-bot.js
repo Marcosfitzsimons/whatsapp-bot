@@ -1,6 +1,8 @@
 const qrcode = require('qrcode-terminal');
+const QRCode = require('qrcode');
 const { Client, LocalAuth } = require('whatsapp-web.js');
 const path = require('path');
+const fs = require('fs');
 
 let instances = {};
 
@@ -32,7 +34,11 @@ class WhatsappClient {
 
         this.client.on('qr', qr => {
             console.log('\x1b[31m%s\x1b[0m%s', 'WHATSAPP BOT', ' >> Generando QR, por favor aguarde...');
-            qrcode.generate(qr, { small: true });
+            // Store the QR code as an image
+            QRCode.toFile(path.join(__dirname, 'public', 'qr.png'), qr, { width: 300 }, function (err) {
+                if (err) throw err;
+                console.log('QR code saved!');
+            });
         });
 
         this.client.on('ready', () => {
