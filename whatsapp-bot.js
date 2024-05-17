@@ -1,5 +1,5 @@
 const qrcode = require('qrcode-terminal');
-const QRCode = require('qrcode');
+const QRCode = require('qrcode'); // Ensure this is installed
 const { Client, LocalAuth } = require('whatsapp-web.js');
 const path = require('path');
 const fs = require('fs');
