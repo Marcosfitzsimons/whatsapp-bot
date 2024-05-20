@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "engines": {
     "node": ">=20"
@@ -35,6 +36,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.1.0"
   }
 }

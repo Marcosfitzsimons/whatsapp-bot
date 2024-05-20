@@ -92,7 +92,7 @@ class WhatsappClient {
             }
             else {
                 // Responder con un mensaje predeterminado o no hacer nada
-                // message.reply('Recibí tu mensaje, pero aún no estoy programado para responder a eso.');
+                // message.reply('Recibí tu mensaje. No estoy programado para responder, solo para enviar notificaciones importantes.');
                 console.log('reply to message received here...')
             }
         });

@@ -4,7 +4,7 @@ dotenv.config()
 
 const express = require("express");
 
-const notificationRoutes = require("./notificationRoutes.js");
+const notificationRoutes = require("./routes/notificationRoutes.js");
 
 var cors = require("cors");
 const path = require("path")
