@@ -66,7 +66,7 @@ const postWhatsappNotification = async (req, res) => {
 
 const sendValidationCode = async (req, res) => {
   const { randomCode, phoneNumber, countryCode } = req.body;
-  console.log('here')
+
   try {
     const whatsappClient = WhatsappClient.getInstance(
       "client-test",
