@@ -27,6 +27,7 @@ const postWhatsappNotification = async (req, res) => {
 
     const { code: countryCode, number: number, msg: msg } = req.body;
 
+
     let internationalNumberFormatted = convertirANumeroInternacional(
       number,
       countryCode
@@ -65,6 +66,7 @@ const postWhatsappNotification = async (req, res) => {
 
 const sendValidationCode = async (req, res) => {
   const { randomCode, phoneNumber, countryCode } = req.body;
+  console.log('here')
   try {
     const whatsappClient = WhatsappClient.getInstance(
       "client-test",
