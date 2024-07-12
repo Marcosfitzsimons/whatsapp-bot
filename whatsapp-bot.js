@@ -46,7 +46,7 @@ class WhatsappClient {
         this.client.on('ready', () => {
             console.log('\x1b[31m%s\x1b[0m%s', 'WHATSAPP BOT', ' >> Conexión exitosa, ya puede utilizar el servicio de mensajería.');
             this.ready = true;
-            this.setupMessageHandler();
+            // this.setupMessageHandler();
         });
 
         this.client.on('auth_failure', msg => {
@@ -73,26 +73,26 @@ class WhatsappClient {
     }
 
     setupMessageHandler() {
-        console.log('\x1b[31m%s\x1b[0m%s', 'WHATSAPP BOT', ' >> Configurando manejador de mensajes.');
-        this.client.on('message', message => {
-            console.log('\x1b[31m%s\x1b[0m%s', 'WHATSAPP BOT', ' >> Mensaje recibido:', message.body);
-            if (message.body === 'Hola' || message.body === "hola") {
-                message.reply(`¡Hola! Soy el BOT🤖 de Asignate.\n Estoy en etapa de desarrollo, pero aqui te dejo unas opciones (Envia el numero): \n
-        1- Contactar con una persona 🤵
-        2- Agendar una entrevista 🎫
-                `);
-            } else if (message.body === "1") {
-                message.reply("Hemos notificado al personal de Asignate, aguarda su respuesta!");
-            }
-            else if (message.body === "2") {
-                message.reply("Perfecto, hemos tomado nota sobre tu solicitud. Estarás recibiendo información en los próximos días, saludos.");
-            }
-            else {
-                // Responder con un mensaje predeterminado o no hacer nada
-                // message.reply('Recibí tu mensaje. No estoy programado para responder, solo para enviar notificaciones importantes.');
-                console.log('reply to message received here...')
-            }
-        });
+        // console.log('\x1b[31m%s\x1b[0m%s', 'WHATSAPP BOT', ' >> Configurando manejador de mensajes.');
+        // this.client.on('message', message => {
+        //     console.log('\x1b[31m%s\x1b[0m%s', 'WHATSAPP BOT', ' >> Mensaje recibido:', message.body);
+        //     if (message.body === 'Hola' || message.body === "hola") {
+        //         message.reply(`¡Hola! Soy el BOT🤖 de Asignate.\n Estoy en etapa de desarrollo, pero aqui te dejo unas opciones (Envia el numero): \n
+        // 1- Contactar con una persona 🤵
+        // 2- Agendar una entrevista 🎫
+        //         `);
+        //     } else if (message.body === "1") {
+        //         message.reply("Hemos notificado al personal de Asignate, aguarda su respuesta!");
+        //     }
+        //     else if (message.body === "2") {
+        //         message.reply("Perfecto, hemos tomado nota sobre tu solicitud. Estarás recibiendo información en los próximos días, saludos.");
+        //     }
+        //     else {
+        //         // Responder con un mensaje predeterminado o no hacer nada
+        //         // message.reply('Recibí tu mensaje. No estoy programado para responder, solo para enviar notificaciones importantes.');
+        //         console.log('reply to message received here...')
+        //     }
+        // });
     }
 
     isReady() {
